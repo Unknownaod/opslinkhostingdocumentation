@@ -1,39 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Getting Started – OpsLink Docs</title>
+  <meta charset="UTF-8" />
+  <title>Getting Started – OpsLink Documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    body { margin: 0; font-family: "Segoe UI", sans-serif; background: #050812; color: #e5e7eb; }
-    a { color: #7fa4ff; text-decoration: none; }
-    header, footer { background: #0b1220; border-bottom: 1px solid rgba(15,23,42,0.9); padding: 16px 24px; }
-    main { max-width: 800px; margin: 0 auto; padding: 40px 24px; line-height: 1.7; }
-    h1 { font-size: 28px; color: #4e8cff; }
-    h2 { color: #7fa4ff; margin-top: 30px; }
-    code { background: rgba(15,23,42,0.7); padding: 2px 5px; border-radius: 4px; }
+    :root {
+      --bg-main: #050812;
+      --bg-sidebar: #0b1220;
+      --bg-card: #0f172a;
+      --accent: #4e8cff;
+      --accent-soft: #7fa4ff;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-mute: #6b7280;
+      --border-subtle: rgba(148,163,184,0.25);
+      --radius-lg: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      display: flex;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* SIDEBAR */
+    aside {
+      width: 250px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid rgba(15,23,42,0.8);
+      display: flex;
+      flex-direction: column;
+      padding: 20px 18px;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+    }
+
+    aside.hidden {
+      transform: translateX(-100%);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo img { height: 32px; }
+    .logo span { font-weight: 600; font-size: 14px; color: var(--accent); }
+
+    input.search {
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(30,41,59,0.9);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--text-main);
+      width: 100%;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    nav a {
+      color: var(--text-soft);
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: 0.15s ease;
+    }
+
+    nav a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    nav a.active { color: var(--accent); background: rgba(78,140,255,0.1); }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px 40px 80px;
+    }
+
+    main h1 {
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    main h2 {
+      color: var(--accent-soft);
+      margin-top: 28px;
+      margin-bottom: 8px;
+    }
+
+    main p {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    code {
+      background: rgba(15,23,42,0.8);
+      border-radius: 4px;
+      padding: 2px 5px;
+      font-family: Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .note {
+      background: rgba(78,140,255,0.1);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin: 16px 0;
+      color: var(--text-soft);
+    }
+
+    footer {
+      border-top: 1px solid rgba(15,23,42,0.95);
+      text-align: center;
+      padding: 20px;
+      font-size: 11px;
+      color: var(--text-mute);
+    }
+
+    .menu-btn {
+      display: none;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--bg-card);
+      border: 1px solid rgba(30,41,59,0.8);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 20px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 50;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
   </style>
 </head>
+
 <body>
-<header>
-  <a href="index.html" style="color:#7fa4ff;">← Back to Docs</a>
-</header>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="logo">
+    <img src="https://i.imgur.com/OVaIQea.png" alt="OpsLink Logo" />
+    <span>OpsLink Docs</span>
+  </div>
+
+  <input type="text" class="search" placeholder="Search documentation..." oninput="filterLinks(this.value)" />
+
+  <nav id="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="getting-started.html" class="active">🚀 Getting Started</a>
+    <a href="panel-guide.html">🖥️ Panel Guide</a>
+    <a href="faq.html">❓ FAQ</a>
+    <a href="https://panel.opslinkcad.com" target="_blank">⚙️ Control Panel</a>
+    <a href="https://support.opslinkcad.com" target="_blank">💬 Support Center</a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
 <main>
-  <h1>Getting Started</h1>
-  <p>Welcome to OpsLink Hosting! Follow these steps to launch your first game or bot server.</p>
+  <h1>Getting Started with OpsLink Hosting</h1>
+  <p>Welcome to OpsLink Hosting! This guide walks you through everything you need to know to access and manage your hosted service — whether it’s a game server, Discord bot, or voice instance.</p>
 
-  <h2>1. Access the Panel</h2>
-  <p>Go to <a href="https://panel.opslinkcad.com" target="_blank">panel.opslinkcad.com</a> and log in with your provided credentials.</p>
+  <div class="note">
+    🔹 You don’t need to “create” a server yourself. OpsLink staff provision every server manually to ensure stability and correct configuration for your plan.
+  </div>
 
-  <h2>2. Create Your Server</h2>
-  <p>Once logged in, click <b>“Create Server”</b> and choose your desired game or bot environment.</p>
+  <h2>1. Receiving Your Server</h2>
+  <p>Once your order is placed and payment is verified, our system automatically assigns your server to a node. You’ll receive a confirmation email within a few minutes containing:</p>
+  <ul>
+    <li>Your panel login URL: <code>https://panel.opslinkcad.com</code></li>
+    <li>Your username (usually your email)</li>
+    <li>Your temporary password (you can change it later)</li>
+    <li>The name of your assigned node (e.g. <code>GameNode03</code>)</li>
+  </ul>
 
-  <h2>3. Configure Startup Settings</h2>
-  <p>Use the environment variables to set your <code>PORT</code>, <code>SERVER_KEY</code>, and other configurations.</p>
+  <h2>2. Logging into the Control Panel</h2>
+  <p>Visit <a href="https://panel.opslinkcad.com" target="_blank">panel.opslinkcad.com</a> and log in using your provided credentials. Once logged in, you’ll see a dashboard listing your assigned server(s).</p>
 
-  <h2>4. Start Your Server</h2>
-  <p>Click the <b>Start</b> button in the console view. You can access logs, SFTP, and real-time resource usage.</p>
+  <h2>3. Accessing Your Server Console</h2>
+  <p>Click on your server to open its control panel. From here you can:</p>
+  <ul>
+    <li>Start, stop, or restart your server</li>
+    <li>View console logs and live output</li>
+    <li>Upload and manage files through the built-in file manager or SFTP</li>
+    <li>Check CPU, RAM, and disk usage in real time</li>
+  </ul>
+
+  <div class="note">
+    💡 For SFTP file access, use:
+    <ul>
+      <li><b>Host:</b> <code>panel.opslinkcad.com</code></li>
+      <li><b>Port:</b> <code>2022</code></li>
+      <li><b>Username:</b> Your panel username</li>
+      <li><b>Password:</b> Your panel password</li>
+    </ul>
+  </div>
+
+  <h2>4. Customizing Your Configuration</h2>
+  <p>Depending on your service type, your OpsLink server will already include default environment variables and startup parameters optimized for your plan. You can:</p>
+  <ul>
+    <li>Edit the startup parameters to add custom launch flags</li>
+    <li>Modify configuration files directly from the file manager</li>
+    <li>Install additional scripts or frameworks (for applicable services)</li>
+  </ul>
+
+  <h2>5. Backups and Restores</h2>
+  <p>Each OpsLink node includes optional automatic backups. If enabled for your plan, daily backups are available in your panel under the <b>Backups</b> tab. You can also manually create one anytime before updates.</p>
+
+  <h2>6. Need Help?</h2>
+  <p>If you encounter any issues, join our <a href="https://discord.gg/opslink" target="_blank">Discord support server</a> or open a ticket at <a href="https://support.opslinkcad.com" target="_blank">support.opslinkcad.com</a>.</p>
 </main>
-<footer style="text-align:center; padding:20px; font-size:12px; color:#9ca3af;">© OpsLink Systems · Docs.</footer>
+
+<footer>
+  © <span id="year"></span> OpsLink Systems · Getting Started Guide.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("hidden");
+  }
+
+  function filterLinks(value) {
+    const links = document.querySelectorAll("#nav-links a");
+    value = value.toLowerCase();
+    links.forEach(link => {
+      const text = link.textContent.toLowerCase();
+      link.style.display = text.includes(value) ? "block" : "none";
+    });
+  }
+</script>
 </body>
 </html>
