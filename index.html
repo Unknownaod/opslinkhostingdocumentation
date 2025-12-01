@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpsLink Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-main: #050812;
+      --bg-card: #0b1220;
+      --accent: #4e8cff;
+      --accent-soft: #7fa4ff;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-mute: #6b7280;
+      --border-subtle: rgba(148,163,184,0.25);
+      --radius-lg: 16px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #050812;
+      color: var(--text-main);
+    }
+
+    a { color: var(--accent-soft); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: #0b1220;
+      border-bottom: 1px solid rgba(15,23,42,0.9);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    nav a {
+      margin-left: 18px;
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    nav a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 { font-size: 30px; margin-bottom: 10px; }
+    p.subtitle { color: var(--text-soft); margin-bottom: 30px; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 18px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15,23,42,0.9);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text-mute);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="logo">
+    <img src="https://i.imgur.com/OVaIQea.png" alt="OpsLink Logo" />
+    <span>OpsLink Documentation</span>
+  </div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+    <a href="panel-guide.html">Panel Guide</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Welcome to OpsLink Docs</h1>
+  <p class="subtitle">Learn how to set up, manage, and optimize your OpsLink Hosting services.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h2>Getting Started</h2>
+      <p>Setup your first server in under 10 minutes. Learn how to deploy your environment on OpsLink Hosting.</p>
+      <a href="getting-started.html">Read Guide →</a>
+    </div>
+    <div class="card">
+      <h2>Panel Guide</h2>
+      <p>Step-by-step documentation for using your OpsLink Pterodactyl panel and accessing your servers.</p>
+      <a href="panel-guide.html">Read Guide →</a>
+    </div>
+    <div class="card">
+      <h2>FAQ</h2>
+      <p>Find answers to common issues and learn best practices for keeping your services running smoothly.</p>
+      <a href="faq.html">Open FAQ →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> OpsLink Systems · Documentation.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
