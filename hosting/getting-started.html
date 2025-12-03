@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OpsLink Hosting – Getting Started</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://i.imgur.com/OVaIQea.png" />
+
+  <style>
+    :root {
+      --bg: #04060d;
+      --bg-card: #0b1220;
+      --accent: #4e8cff;
+      --accent-soft: #7fa4ff;
+      --text: #e5e7eb;
+      --soft: #a1a6bb;
+      --border: rgba(148,163,184,0.25);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Segoe UI",system-ui,sans-serif;display:flex;height:100vh;overflow:hidden}
+    aside{width:260px;background:#0a0f1e;border-right:1px solid rgba(255,255,255,.05);
+      padding:22px 18px;overflow-y:auto}
+    .logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+    .logo img{height:34px}.logo span{color:var(--accent);font-weight:600;font-size:14px}
+    nav a{display:block;color:var(--soft);font-size:13px;padding:6px 8px;border-radius:6px;text-decoration:none;transition:.2s}
+    nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+    nav a.active{background:rgba(78,140,255,.1);color:var(--accent)}
+    main{flex:1;overflow-y:auto;padding:40px 40px 80px}
+    h1{color:var(--accent);margin-bottom:10px;font-size:28px}
+    h2{color:var(--accent-soft);margin-top:26px;margin-bottom:8px}
+    p{color:var(--soft);font-size:14px;line-height:1.7}
+    ol,ul{color:var(--soft);font-size:14px;line-height:1.8}
+    code{background:rgba(255,255,255,.05);padding:2px 5px;border-radius:4px;color:var(--accent-soft)}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:20px}
+    footer{text-align:center;border-top:1px solid rgba(255,255,255,.05);padding:20px;font-size:11px;color:var(--soft)}
+  </style>
+</head>
+<body>
+<aside>
+  <div class="logo"><img src="https://i.imgur.com/OVaIQea.png"><span>Hosting Docs</span></div>
+  <nav>
+    <a href="index.html">🏠 Overview</a>
+    <a href="#" class="active">🚀 Getting Started</a>
+    <a href="panel.html">🖥️ Control Panel</a>
+    <a href="sftp.html">📂 SFTP & File Access</a>
+    <a href="faq.html">❓ FAQ</a>
+  </nav>
+</aside>
+
+<main>
+  <h1>Getting Started with OpsLink Hosting</h1>
+  <p>This guide will help you set up your first OpsLink-hosted service, whether it’s a FiveM server, Discord bot, or web application.</p>
+
+  <div class="card">
+    <h2>1. Access the Panel</h2>
+    <p>Visit the <a href="https://panel.opslinkcad.com" target="_blank" style="color:var(--accent-soft)">OpsLink Hosting Panel</a> and log in with your assigned credentials.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Create a Server</h2>
+    <ol>
+      <li>Navigate to <b>Servers</b> → <b>Create Server</b>.</li>
+      <li>Select your desired environment (Node.js, FiveM, Python, etc.).</li>
+      <li>Choose your plan or resource allocation.</li>
+      <li>Click <b>Create</b> and wait for provisioning to complete.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>3. Deploy Your Project</h2>
+    <p>Once your server is active, upload your files using the built-in file manager or connect via <code>SFTP</code>.  
+    Restart the container from the console once your setup is complete.</p>
+  </div>
+</main>
+
+<footer>© <script>document.write(new Date().getFullYear())</script> OpsLink Systems – Hosting Documentation</footer>
+</body>
+</html>
