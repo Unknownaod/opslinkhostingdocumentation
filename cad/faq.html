@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OpsLink CAD – FAQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://i.imgur.com/OVaIQea.png" />
+  <style>
+    :root {--bg:#04060d;--bg-card:#0b1220;--accent:#00b4d8;--accent-soft:#4dd0ff;
+      --text:#e5e7eb;--soft:#a1a6bb;--border:rgba(148,163,184,0.25);--radius:14px;}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Segoe UI",system-ui,sans-serif;display:flex;height:100vh;overflow:hidden}
+    aside{width:260px;background:#0a0f1e;border-right:1px solid rgba(255,255,255,.05);
+      padding:22px 18px;overflow-y:auto}
+    .logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+    .logo img{height:34px}.logo span{color:var(--accent);font-weight:600;font-size:14px}
+    nav a{display:block;color:var(--soft);font-size:13px;padding:6px 8px;border-radius:6px;text-decoration:none;transition:.2s}
+    nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+    nav a.active{background:rgba(0,180,216,.12);color:var(--accent)}
+    main{flex:1;overflow-y:auto;padding:40px 40px 80px}
+    h1{color:var(--accent);margin-bottom:10px;font-size:28px}
+    h2{color:var(--accent-soft);margin-top:26px;margin-bottom:8px}
+    p{color:var(--soft);font-size:14px;line-height:1.7}
+    .card{background:var(--bg-card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:20px;margin-top:20px}
+    footer{text-align:center;border-top:1px solid rgba(255,255,255,.05);
+      padding:20px;font-size:11px;color:var(--soft)}
+  </style>
+</head>
+<body>
+<aside>
+  <div class="logo"><img src="https://i.imgur.com/OVaIQea.png"><span>CAD Docs</span></div>
+  <nav>
+    <a href="index.html">🚔 Overview</a>
+    <a href="setup.html">🧩 Setup Guide</a>
+    <a href="departments.html">🏢 Departments</a>
+    <a href="units.html">🚓 Units & Calls</a>
+    <a href="#" class="active">❓ FAQ</a>
+  </nav>
+</aside>
+
+<main>
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="card">
+    <h2>Can I host my own CAD instance?</h2>
+    <p>Yes — OpsLink Premier and PremierOne tiers include optional private deployments.  
+    Contact <a href="https://opslinkcad.com" style="color:var(--accent-soft)">OpsLink Systems</a> for setup.</p>
+  </div>
+
+  <div class="card">
+    <h2>Does it integrate with Discord?</h2>
+    <p>Yes, Discord webhooks and integration modules sync live call activity and unit statuses to specified channels.</p>
+  </div>
+
+  <div class="card">
+    <h2>Is there mobile support?</h2>
+    <p>Yes. The CAD is fully responsive and optimized for tablet and phone use.</p>
+  </div>
+
+  <div class="card">
+    <h2>Where can I get support?</h2>
+    <p>Join <a href="https://discord.gg/UF6Dt66phh" style="color:var(--accent-soft)">discord.gg/UF6Dt66phh</a>  
+    and open a <b>CAD Ticket</b> for technical or feature-related help.</p>
+  </div>
+</main>
+
+<footer>© <script>document.write(new Date().getFullYear())</script> OpsLink Systems – CAD Documentation</footer>
+</body>
+</html>
