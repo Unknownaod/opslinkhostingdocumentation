@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OpsLink CAD – Units & Calls</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://i.imgur.com/OVaIQea.png" />
+  <style>
+    :root {--bg:#04060d;--bg-card:#0b1220;--accent:#00b4d8;--accent-soft:#4dd0ff;
+      --text:#e5e7eb;--soft:#a1a6bb;--border:rgba(148,163,184,0.25);--radius:14px;}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Segoe UI",system-ui,sans-serif;display:flex;height:100vh;overflow:hidden}
+    aside{width:260px;background:#0a0f1e;border-right:1px solid rgba(255,255,255,.05);
+      padding:22px 18px;overflow-y:auto}
+    .logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+    .logo img{height:34px}.logo span{color:var(--accent);font-weight:600;font-size:14px}
+    nav a{display:block;color:var(--soft);font-size:13px;padding:6px 8px;border-radius:6px;text-decoration:none;transition:.2s}
+    nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+    nav a.active{background:rgba(0,180,216,.12);color:var(--accent)}
+    main{flex:1;overflow-y:auto;padding:40px 40px 80px}
+    h1{color:var(--accent);margin-bottom:10px;font-size:28px}
+    h2{color:var(--accent-soft);margin-top:26px;margin-bottom:8px}
+    p,ul{color:var(--soft);font-size:14px;line-height:1.7}
+    .card{background:var(--bg-card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:20px;margin-top:20px}
+    footer{text-align:center;border-top:1px solid rgba(255,255,255,.05);
+      padding:20px;font-size:11px;color:var(--soft)}
+  </style>
+</head>
+<body>
+<aside>
+  <div class="logo"><img src="https://i.imgur.com/OVaIQea.png"><span>CAD Docs</span></div>
+  <nav>
+    <a href="index.html">🚔 Overview</a>
+    <a href="setup.html">🧩 Setup Guide</a>
+    <a href="departments.html">🏢 Departments</a>
+    <a href="#" class="active">🚓 Units & Calls</a>
+    <a href="faq.html">❓ FAQ</a>
+  </nav>
+</aside>
+
+<main>
+  <h1>Units & Calls</h1>
+  <p>Units and calls are the core of the CAD’s functionality — enabling real-time dispatch management and active tracking.</p>
+
+  <div class="card">
+    <h2>Creating Calls</h2>
+    <p>Dispatchers can create calls through the <b>Calls Panel</b> with location, type, priority, and notes.  
+    Units can attach and update status instantly.</p>
+  </div>
+
+  <div class="card">
+    <h2>Unit Status Codes</h2>
+    <ul>
+      <li><b>10-8</b> – Available</li>
+      <li><b>10-6</b> – Busy</li>
+      <li><b>10-23</b> – On Scene</li>
+      <li><b>10-42</b> – End of Shift</li>
+    </ul>
+  </div>
+</main>
+
+<footer>© <script>document.write(new Date().getFullYear())</script> OpsLink Systems – CAD Documentation</footer>
+</body>
+</html>
